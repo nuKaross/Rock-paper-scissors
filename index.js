@@ -16,7 +16,7 @@ let userinput = userQ.toUpperCase();
     }
 
 function playoneround(getComputerChoice,userinput){
-    if(getComputerChoice=="Rock" && userinput == "ROCK"){
+    if(getComputerChoice.toUpperCase() == userinput){
         return 'Tie!';
     }   
     else if(getComputerChoice=="Rock" && userinput == "PAPER"){
@@ -28,9 +28,6 @@ function playoneround(getComputerChoice,userinput){
     else if(getComputerChoice=="Paper" && userinput == "ROCK"){
     return 'You lose! Paper beats rock';
     }
-    else if(getComputerChoice=="Paper" && userinput == "PAPER"){
-    return "Tie!";
-    }
     else if(getComputerChoice=="Paper" && userinput == "SCISSORS"){
     return 'You win! Scissors beat Paper.';
     }
@@ -40,9 +37,7 @@ function playoneround(getComputerChoice,userinput){
     else if(getComputerChoice=="Scissors" && userinput == "PAPER"){
         return 'You lose! Scissors beat Paper.';
     }
-    else if(getComputerChoice=="Scissors" && userinput == "SCISSORS"){
-        return 'Tie!';
-    }
+
 }
 console.log(playoneround(getComputerChoice(), userinput));
 
