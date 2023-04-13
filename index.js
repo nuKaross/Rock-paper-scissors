@@ -1,7 +1,12 @@
+let userscore = 0;
+let pcScore = 0;
+
+function game(){
+    for(i=0;i<5;i++){
+
 let userQ = prompt('Type in your call!');
 let userinput = userQ.toUpperCase();
-
-
+let computerChoice = getComputerChoice()
 
  function getComputerChoice(){
    let PcChoice = (Math.floor(Math.random() * 3) + 1)
@@ -15,29 +20,44 @@ let userinput = userQ.toUpperCase();
         return 'Scissors';
     }
 
-function playoneround(getComputerChoice,userinput){
-    if(getComputerChoice.toUpperCase() == userinput){
+    
+function playoneround(computerChoice,userinput){
+    if(computerChoice.toUpperCase() == userinput){
         return 'Tie!';
     }   
-    else if(getComputerChoice=="Rock" && userinput == "PAPER"){
+    else if(computerChoice=="Rock" && userinput == "PAPER"){
     return 'You win! Paper beats Rock.';
     }   
-    else if(getComputerChoice=="Rock" && userinput == "SCISSORS"){
+    else if(computerChoice=="Rock" && userinput == "SCISSORS"){
     return 'You lose! Rock beats scissors.';
     }
-    else if(getComputerChoice=="Paper" && userinput == "ROCK"){
+    else if(computerChoice=="Paper" && userinput == "ROCK"){
     return 'You lose! Paper beats rock';
     }
-    else if(getComputerChoice=="Paper" && userinput == "SCISSORS"){
+    else if(computerChoice=="Paper" && userinput == "SCISSORS"){
     return 'You win! Scissors beat Paper.';
     }
-    else if(getComputerChoice=="Scissors" && userinput == "ROCK"){
+    else if(computerChoice=="Scissors" && userinput == "ROCK"){
         return 'You win! rock beats Scissors.';
     }
-    else if(getComputerChoice=="Scissors" && userinput == "PAPER"){
+    else if(computerChoice=="Scissors" && userinput == "PAPER"){
         return 'You lose! Scissors beat Paper.';
     }
 
 }
-console.log(playoneround(getComputerChoice(), userinput));
+
+function addpoints(){
+    if (playoneround(computerChoice,userinput).includes ('win')){
+     userscore++;
+}   else if (playoneround(computerChoice,userinput).includes ('lose')){
+     pcScore++;
+}
+}
+addpoints();
+console.log('Your score: ',userscore);
+console.log('PC score: ',pcScore);
+console.log(playoneround(computerChoice,userinput));
+}
+}
+game();
 
